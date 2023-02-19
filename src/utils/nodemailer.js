@@ -48,11 +48,12 @@ export const newAccountEmailVerificationEmail = (link, obj) => {
     </p>
     `,
   };
+  sendEmail(emailBody);
 };
 
 //email verification notification
 
-export const emailVerificationNotification = ({ fName, email }) => {
+export const emailVerifiedNotification = ({ fName, email }) => {
   const emailBody = {
     from: `"Programming with Shital", <${process.env.EMAIL_USER} > `,
     to: email,

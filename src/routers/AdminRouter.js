@@ -1,8 +1,15 @@
 import express from "express";
 const router = express.Router();
 import { v4 as uuidv4 } from "uuid";
-import { createNewAdmin } from "../models/admin/AdminModel.js";
-import { newAccountEmailVerificationEmail } from "../utils/nodemailer.js";
+import {
+  createNewAdmin,
+  updateAdmin,
+  findUser,
+} from "../models/admin/AdminModel.js";
+import {
+  newAccountEmailVerificationEmail,
+  emailVerifiedNotification,
+} from "../utils/nodemailer.js";
 
 //admin registration
 router.post("/register", async (req, res, next) => {
