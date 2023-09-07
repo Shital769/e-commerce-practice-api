@@ -21,13 +21,12 @@ import adminRouter from "./src/routers/AdminRouter.js";
 
 app.use("/api/v1/admin", adminRouter);
 
-
 //Root Url Request
 app.use("/", (req, res, next) => {
   const error = {
     message: "You don't have permission here!",
   };
-  next(error);
+  res.json(error);
 });
 
 //Global error handler

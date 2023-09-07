@@ -79,3 +79,35 @@ export const emailVerifiedNotification = ({ fName, email }) => {
   };
   sendEmail(emailBody);
 };
+
+// email otp
+export const emailOtp = ({ token, email }) => {
+  const emailBody = {
+    from: `"Coding Shop", <${process.env.EMAIL_USER}>`,
+    to: email,
+    subject: "OPT for password reset",
+    text: "Use the following otp to reset your password " + token,
+    html: `
+        <p>
+            Hi there,
+        </p>
+        <br />
+        
+        <p>
+        Here is your opt to reset your password
+        </p>
+        <br >
+<p>
+               ${token}
+    </p>
+    <br >
+    <p>
+    Regards, 
+    <br>
+   Coding Shop customer care team
+</p>
+        `,
+  };
+
+  sendEmail(emailBody);
+};
